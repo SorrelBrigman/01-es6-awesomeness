@@ -6,21 +6,32 @@ const cheer = (name) => {
   //take the now uppercase string and turn it to an array
   let cheerArray = Array.from(cheerCaps);
 // logged to the console/terminal
-  for(var i=0; i < cheerArray.length; i++) {
-// account for a/an
-  if(cheerArray[i] === "A" | "E" | "I" | "O" | "U") {
-    console.log(`Give me an ${cheerArray[i]}`);
-    } else {
-      console.log(`Give me a ${cheerArray[i]}`);
+  for(var i = 0; i < cheerArray.length; i++) {
+    let thisLetter = cheerArray[i];
+    if(cheerArray[i] === "A" | "E" | "I" | "O" | "U") {
+      setTimeout(()=>console.log(`Give me an ${thisLetter}`), (1000 * i));
+      } else if(cheerArray[i]=== " ") {
+
+      } else {
+       setTimeout(()=>console.log(`Give me a ${thisLetter}`), (1000 * i));
+      }
     }
-    console.log(`What's that spell?`);
-    } // end of for loop
-    console.log(`${cheerCaps}!`);
+    setTimeout(()=>console.log(`What's that spell?`), (1000 * (cheerArray.length + 1)));
+    setTimeout(()=>console.log(`${cheerCaps}!`), (1000 * (cheerArray.length + 2)));
+    // console.log(`${cheerCaps}!`);
   }
+
 
 
 // with the argument passed to it
 // delay the logs by 1 second.
 
 
-cheer("Bob");
+
+// account for a/an
+ // end of for loop
+
+
+
+
+cheer("Bob Ross");
