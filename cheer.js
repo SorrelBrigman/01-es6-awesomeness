@@ -1,3 +1,6 @@
+#!/usr/bin/env node
+
+
 // create a function
 const cheer = (name) => {
 // that performs a cheer
@@ -9,6 +12,9 @@ const cheer = (name) => {
   for(var i = 0; i < cheerArray.length; i++) {
     let thisLetter = cheerArray[i];
     if(cheerArray[i] === "A" | "E" | "I" | "O" | "U") {
+      //delay by one second
+      //for each index value, multiple it by one second to get a staggerd
+      //one second delay for each interation through the loop
       setTimeout(()=>console.log(`Give me an ${thisLetter}`), (1000 * i));
       } else if(cheerArray[i]=== " ") {
 
@@ -23,15 +29,28 @@ const cheer = (name) => {
 
 
 
-// with the argument passed to it
-// delay the logs by 1 second.
+// cheer("Bob Ross");
 
 
-
-// account for a/an
- // end of for loop
+//attempting example solution presented in class.
 
 
+let first = "Helen";
+let last = "Keller";
+const name = {first, last};
+
+console.log(name);
+const nodeCheer = ({first, last}) => {
+  let name = `${first} ${last}`.toUpperCase();
+  [...first, ...last].forEach((letter, index)=>setTimeout(testLetter, (1000 * index), letter));
+  setTimeout(()=>console.log("What's that spell?"), ((name.length-1) * 1000));
+  setTimeout(()=>console.log(`${name}!`), ((name.length) * 1000));
+};
 
 
-cheer("Bob Ross");
+const testLetter = (letter) => {
+    let conjunction ="aeiofhlmnrsx".includes(letter.toLowerCase()) ? "an" : "a";
+    console.log(`Gimme ${conjunction} ${letter.toUpperCase()}!`);
+};
+
+nodeCheer(name);
